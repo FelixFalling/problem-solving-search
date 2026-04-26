@@ -49,13 +49,26 @@ number of steps for each heuristic).
 
 """
 
-class Problem:
+class n_problem:
     def __init__(self):
         self.board_config = [4, 5, "b", 6, 1, 8, 7, 3, 2]
         self.goal_board_config = [1, 2, 3, 4, 5, 6, 7, 8, "b"]
-        self.idea_board_config = [1,2,3,4,5,6,7,8,"b"]
 
     def my_print(self):
-        print(self.goal_board_config)
-        print(self.board_config)
+        self.get_number_of_inversions(self.goal_board_config)
+        self.get_number_of_inversions(self.board_config)
 
+
+    def get_number_of_inversions(self,board_config):    
+        inversions = 0
+        # Compare every pair of tiles
+        for i in range(len(board_config)):
+            for j in range(i + 1, len(board_config)):
+                if board_config[i] == "b" or board_config[j] == "b":
+                    continue
+                if board_config[i] > board_config[j]:
+                    inversions += 1
+                    
+        print(inversions)
+
+        return inversions

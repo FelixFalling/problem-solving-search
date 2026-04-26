@@ -1,9 +1,9 @@
-from problem_solving_as_search import Problem
+from problem_solving_as_search import n_problem
 
 
 def main():
     print("Hello from problem-solving-search!")
-    my_problem = Problem()
+    my_problem = n_problem()
     my_problem.my_print()
 
 
